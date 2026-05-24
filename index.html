@@ -6,12 +6,51 @@
     <title>Git tutorials</title>
 </head>
 <body>
-    <p>Hello github!!</p>
-    <p>hello world you are in githum</p>
+    <div class="form-container">
+    <h2>User Registration</h2>
+    <form action="#" method="POST">
+        
+        <div class="form-group-row">
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="firstname" placeholder="John" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="lastname" placeholder="Doe" required>
+            </div>
+        </div>
 
-    <button type="button">Add_person</button>
-    <button type="button">Delete_person</button>
-    <h2>hello we are in the world jack danilleros</h2>
+        <div class="form-group full-width">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
+        </div>
+
+        <div class="form-group-row">
+            <div class="form-group">
+                <label for="role">Primary Role</label>
+                <select id="role" name="role">
+                    <option value="developer">Developer</option>
+                    <option value="designer">Designer</option>
+                    <option value="analyst">Data Analyst</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required>
+            </div>
+        </div>
+
+        <div class="form-group full-width">
+            <label for="bio">Short Bio</label>
+            <textarea id="bio" name="bio" placeholder="Tell us a bit about your background..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Application</button>
+    </form>
+</div>
 
 </body>
 </html>
