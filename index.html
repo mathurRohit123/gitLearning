@@ -8,50 +8,94 @@
 </head>
 <body>
     <div class="form-container">
-    <h2>User Registration</h2>
-    <form action="#" method="POST">
-        
-        <div class="form-group-row">
-            <div class="form-group">
-                <label for="first-name">First Name</label>
-                <input type="text" id="first-name" name="firstname" placeholder="John" required>
-            </div>
+        <h2>User Registration</h2>
+        <form id="registrationForm">
             
-            <div class="form-group">
-                <label for="last-name">Last Name</label>
-                <input type="text" id="last-name" name="lastname" placeholder="Doe" required>
-            </div>
-        </div>
-
-        <div class="form-group full-width">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
-        </div>
-
-        <div class="form-group-row">
-            <div class="form-group">
-                <label for="role">Primary Role</label>
-                <select id="role" name="role">
-                    <option value="developer">Developer</option>
-                    <option value="designer">Designer</option>
-                    <option value="analyst">Data Analyst</option>
-                </select>
+            <div class="form-group-row">
+                <div class="form-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" name="firstname" placeholder="John" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" name="lastname" placeholder="Doe" required>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" name="password" placeholder="••••••••" required>
+            <div class="form-group full-width">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="john.doe@example.com" required>
             </div>
-        </div>
 
-        <div class="form-group full-width">
-            <label for="bio">Short Bio</label>
-            <textarea id="bio" name="bio" placeholder="Tell us a bit about your background..."></textarea>
-        </div>
+            <div class="form-group-row">
+                <div class="form-group">
+                    <label for="role">Primary Role</label>
+                    <select id="role" name="role">
+                        <option value="developer">Developer</option>
+                        <option value="designer">Designer</option>
+                        <option value="analyst">Data Analyst</option>
+                    </select>
+                </div>
 
-        <button type="submit" class="submit-btn">Submit Application</button>
-    </form>
-</div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+            </div>
+
+            <div class="form-group full-width">
+                <label for="bio">Short Bio</label>
+                <textarea id="bio" name="bio" placeholder="Tell us a bit about your background..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Submit Application</button>
+        </form>
+
+        <div id="responseBox" class="response-box"></div>
+
+    </div>
+
+    <script>
+
+        const form = document.getElementById("registrationForm");
+        const responseBox = document.getElementById("responseBox");
+
+        form.addEventListener("submit", function(e) {
+
+            e.preventDefault();
+
+            // Collect form data
+            const formData = {
+                firstname: document.getElementById("first-name").value,
+                lastname: document.getElementById("last-name").value,
+                email: document.getElementById("email").value,
+                role: document.getElementById("role").value,
+                password: document.getElementById("password").value,
+                bio: document.getElementById("bio").value
+            };
+
+            // Fake API Response
+            const apiResponse = {
+                success: true,
+                message: "Application submitted successfully",
+                timestamp: new Date().toISOString(),
+                data: formData
+            };
+
+        // Display JSON Response
+            responseBox.style.display = "block";
+
+            responseBox.innerHTML = `
+                                    <pre>${JSON.stringify(apiResponse, null, 4)}</pre>
+                                    `;
+
+            // Optional reset
+            form.reset();
+
+        });
+
+    </script>
 
 </body>
 </html>
